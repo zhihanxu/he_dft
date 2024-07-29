@@ -1,7 +1,7 @@
 module address_generation_unit #(
     parameter N = 65536, 
     parameter MAX_R = 31,   // number of rotations each fftiter
-    parameter DATA_WIDTH = 54
+    parameter DATA_WIDTH = 54,
     parameter ADDR_WIDTH = 10
 )(
     input wire clk,
@@ -12,7 +12,7 @@ module address_generation_unit #(
     output reg [ADDR_WIDTH-1:0] output_address
 );
 
-    reg [ADDR_WIDTH-1:0] new_index;
+    wire [ADDR_WIDTH-1:0] new_index;
 
     // Register file to store pre-computed powers of 5
     reg [DATA_WIDTH-1:0] pow5 [0:MAX_R-1];
@@ -69,3 +69,4 @@ module address_generation_unit #(
     end
 
 endmodule
+
